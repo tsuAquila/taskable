@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+void signInUser() {}
+
 class Login extends StatelessWidget {
   const Login({super.key});
 
@@ -10,7 +12,7 @@ class Login extends StatelessWidget {
       body: SafeArea(
         child: Column(children: [
           SizedBox(
-            height: 50,
+            height: 300,
           ),
 
           //text TASKABLE
@@ -25,7 +27,7 @@ class Login extends StatelessWidget {
 
           //sign in with
           Padding(
-              padding: EdgeInsets.only(top: 200),
+              padding: EdgeInsets.only(top: 150),
               child: Center(
                 child: Text(
                   "sign in with",
@@ -34,11 +36,23 @@ class Login extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-              ))
+              )),
 
           //google image
-          
-
+          Padding(
+            padding: EdgeInsets.only(top: 20),
+            child: ElevatedButton(
+              onPressed: signInUser,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Icon(Icons.sign_language, size: Checkbox.width,), // Add your image/icon here
+                  SizedBox(width: 20.0, height: 20,), // Adjust the spacing as needed
+                  Text('Press Me'),
+                ],
+              ),
+            ),
+          )
         ]),
       ),
     );

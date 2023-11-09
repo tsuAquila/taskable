@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "695345913798",
+    "firebase_url": "https://taskable-6f90c-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "taskable-6f90c",
+    "storage_bucket": "taskable-6f90c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:695345913798:android:635a400224d96f435e5cc7",
+        "android_client_info": {
+          "package_name": "com.example.taskable"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "695345913798-kd7lgrquqj7ab9khvnfgt1b757cfkh7p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLbhdykSKKE4qmgMAGYOHA6yy7C7OiUR4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "695345913798-kd7lgrquqj7ab9khvnfgt1b757cfkh7p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
