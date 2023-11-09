@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:taskable/pages/home.dart';
 import 'package:taskable/pages/login.dart';
 
-class AuthPage extends StatelessWidget {
-  const AuthPage({super.key});
+class Auth extends StatelessWidget {
+  const Auth({super.key});
 
   @override
   Widget build(BuildContext context) {

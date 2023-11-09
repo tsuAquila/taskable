@@ -1,10 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:taskable/firebase_options.dart';
-import 'package:taskable/pages/login.dart';
+import 'package:taskable/pages/auth.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized;
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           textTheme: const TextTheme(
               bodyMedium: TextStyle(fontFamily: 'CascadiaCode'))),
-      home: const Login(),
+      home: const Auth(),
     );
   }
 }

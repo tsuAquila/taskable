@@ -1,9 +1,27 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-void signInUser() {}
-
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  void signInUser() async {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        });
+
+    await FirebaseAuth.instance.signInWithProvider(GoogleAuthProvider());
+
+    Navigator.pop(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +64,14 @@ class Login extends StatelessWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  Icon(Icons.sign_language, size: Checkbox.width,), // Add your image/icon here
-                  SizedBox(width: 20.0, height: 20,), // Adjust the spacing as needed
+                  Icon(
+                    Icons.sign_language,
+                    size: Checkbox.width,
+                  ), // Add your image/icon here
+                  SizedBox(
+                    width: 20.0,
+                    height: 20,
+                  ), // Adjust the spacing as needed
                   Text('Press Me'),
                 ],
               ),
