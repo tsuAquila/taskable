@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:taskable/pages/home.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -9,32 +11,38 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  void signInUser() async {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        });
-
-    await FirebaseAuth.instance.signInWithProvider(GoogleAuthProvider());
-
-    Navigator.pop(context);
+  Future<void> signInWithGoogle() async {
+    //create instance of signin
+    FirebaseAuth auth = FirebaseAuth.instance;
+    final GoogleSignIn googleSignIn = GoogleSignIn();
+    //create signin account
+    final GoogleSignInAccount? googleSignInAccount =
+        await googleSignIn.signIn();
+    //obtain auth info
+    final GoogleSignInAuthentication googleAuth =
+        await googleSignInAccount!.authentication;
+    //create new credentials
+    final AuthCredential credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+    //sign in user
+    final UserCredential userCredential =
+        await auth.signInWithCredential(credential);
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
         child: Column(children: [
-          SizedBox(
+          const SizedBox(
             height: 300,
           ),
 
           //text TASKABLE
-          Center(
+          const Center(
               child: Text(
             "taskable",
             style: TextStyle(
@@ -44,7 +52,7 @@ class _LoginState extends State<Login> {
           )),
 
           //sign in with
-          Padding(
+          const Padding(
               padding: EdgeInsets.only(top: 150),
               child: Center(
                 child: Text(
@@ -56,26 +64,21 @@ class _LoginState extends State<Login> {
                 ),
               )),
 
-          //google image
-          Padding(
-            padding: EdgeInsets.only(top: 20),
-            child: ElevatedButton(
-              onPressed: signInUser,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Icon(
-                    Icons.sign_language,
-                    size: Checkbox.width,
-                  ), // Add your image/icon here
-                  SizedBox(
-                    width: 20.0,
-                    height: 20,
-                  ), // Adjust the spacing as needed
-                  Text('Press Me'),
-                ],
-              ),
-            ),
+          //google login
+          GestureDetector(
+            child: Padding(
+                padding: const EdgeInsets.only(top: 40),
+                child: Center(
+                  child: Image.asset(
+                    "lib/images/google.png",
+                    width: 50,
+                    height: 50,
+                  ),
+                )),
+            onTap: () {
+              signInWithGoogle();
+              Navigator.push(context, MaterialPageRoute(builder: (_) => const Home()));
+            },
           )
         ]),
       ),

@@ -30,6 +30,13 @@
             {
               "client_id": "695345913798-kd7lgrquqj7ab9khvnfgt1b757cfkh7p.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "695345913798-ctoi2qkd4cd0qo8rka60bb5d3ud5o5ks.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.taskable"
+              }
             }
           ]
         }

@@ -13,6 +13,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("taskable"),
+        titleTextStyle: const TextStyle(fontFamily: "CascadiaCode"),
         backgroundColor: Colors.black87,
         actions: [
           IconButton(
