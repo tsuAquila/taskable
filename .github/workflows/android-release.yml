@@ -28,6 +28,9 @@ jobs:
           flutter-version: "3.13.9"
           channel: 'stable'
       # 12
+      - name: change directory
+        run: cd taskable
+
       - name: Get dependencies
         run: flutter pub get
 
