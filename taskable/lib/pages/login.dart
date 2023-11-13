@@ -76,9 +76,13 @@ class _LoginState extends State<Login> {
                   ),
                 )),
             onTap: () async {
-              await signInWithGoogle();
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => const Home()));
+              try {
+                await signInWithGoogle();
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => const Home()));
+              } catch (e) {
+                print(e.toString());
+              }
             },
           )
         ]),
